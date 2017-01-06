@@ -228,6 +228,8 @@ end
 
 function LSTM:clearState()
    self.zeroTensor:set()
+   nn.utils.clear(self,'output','gradInput','self.cells','self.gradCells')
+   self.recurrentModule:clearState()
    return parent.clearState(self)
 end
 
